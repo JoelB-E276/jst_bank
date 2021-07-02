@@ -18,11 +18,6 @@ class Operation
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $account_id;
-
-    /**
      * @ORM\Column(type="string", length=100)
      */
     private $name;
@@ -42,21 +37,15 @@ class Operation
      */
     private $operation_type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Account::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Operation;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAccountId(): ?int
-    {
-        return $this->account_id;
-    }
-
-    public function setAccountId(int $account_id): self
-    {
-        $this->account_id = $account_id;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -103,6 +92,18 @@ class Operation
     public function setOperationType(string $operation_type): self
     {
         $this->operation_type = $operation_type;
+
+        return $this;
+    }
+
+    public function getOperation(): ?Account
+    {
+        return $this->Operation;
+    }
+
+    public function setOperation(?Account $Operation): self
+    {
+        $this->Operation = $Operation;
 
         return $this;
     }
