@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="nav">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('index')}}">LOGO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active maincolor" aria-current="page" href="{{ path('index')}}">Home</a>
+        </li>
+        <li class="nav-item">
+          {# <a class="nav-link maincolor" href="{{ path('rules')}}">Rules</a> #}
+        </li>
+         <li class="nav-item">
+          {# <a class="nav-link maincolor" href="{{ path('newSubject')}}">New Subject</a> #}
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle maincolor" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu maincolor" aria-labelledby="navbarDropdownMenuLink">
+            {# <li><a class="dropdown-item maincolor" href="{{ path('abtSymfony')}}">Why Symfony</a></li> #}
+            <li><a class="dropdown-item maincolor" href="#">Another action</a></li>
+            <li><a class="dropdown-item maincolor" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
