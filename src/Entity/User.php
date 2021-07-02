@@ -65,6 +65,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $birth_date;
 
+    /**
+     * @ORM\Column(type="string", length=1)
+     */
+    private $sex;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -222,6 +227,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBirthDate(?\DateTimeInterface $birth_date): self
     {
         $this->birth_date = $birth_date;
+
+        return $this;
+    }
+
+    public function getSex(): ?string
+    {
+        return $this->sex;
+    }
+
+    public function setSex(string $sex): self
+    {
+        $this->sex = $sex;
 
         return $this;
     }
