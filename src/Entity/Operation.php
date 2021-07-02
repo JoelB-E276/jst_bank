@@ -41,7 +41,7 @@ class Operation
      * @ORM\ManyToOne(targetEntity=Account::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Operation;
+    private $Account;
 
     public function getId(): ?int
     {
@@ -96,15 +96,16 @@ class Operation
         return $this;
     }
 
-    public function getOperation(): ?Account
+    public function getAccount(): ?Account
     {
-        return $this->Operation;
+        return $this->Account;
     }
 
-    public function setOperation(?Account $Operation): self
+    public function setAccount(?Account $Account): self
     {
-        $this->Operation = $Operation;
+        $this->Account = $Account;
 
         return $this;
     }
+
 }
