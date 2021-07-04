@@ -105,6 +105,9 @@ textarea {
     padding: 0;
 }
 
+.bg{
+    background-image: url(../img/bg.jpg);
+}
 /* ##########################   NAVBAR   ########################### */
 #nav{
     background-color: #F28C4Aff;

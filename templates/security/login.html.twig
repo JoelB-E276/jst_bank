@@ -3,7 +3,8 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+<div class="bg">
+<form class="container" method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -42,5 +43,5 @@
     </button>
     
 </form>
-
+</div>
 {% endblock %}
