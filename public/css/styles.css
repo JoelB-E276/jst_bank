@@ -118,7 +118,11 @@ a, li, ul{
     color: #F28C4Aff;
 }
 /* ##########################   FOOTER  ########################### */
-
+.btn{
+    background-color: #F28C4Aff !important;
+    background: #F28C4Aff !important;
+    color: #fff !important;
+}
 
 /* ##################################################################### */
 /* ########################   LARGE DESKTOPS   ######################### */
