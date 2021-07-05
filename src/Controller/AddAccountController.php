@@ -33,18 +33,14 @@ class AddAccountController extends AbstractController
     }
 
     /**
-     * @Route("/{id}")
+     * @Route("/")
      */
-    public function getAccounts(int $id=1, User $user, AccountRepository $accountRepository, Request $request): Response
+    /*public function getAccounts(int $id=1, User $user, AccountRepository $accountRepository, Request $request): Response
     {
-        $user = new User;
-        $accounts = $user->getId($id);
-        var_dump($accounts);
-        return $this->render('front/index.html.twig' ,[
-            "accounts" => $accounts
-        ]);
+        
+        return $this->render('front/index.html.twig');
 
-    }
+    }*/
     /**
      * @Route("/")
      */
