@@ -107,7 +107,13 @@ textarea {
 
 .bg{
     background-image: url(../img/bg.jpg);
+    min-height: 90vh;
 }
+
+h1, label, fieldset{
+    color: #F28C4Aff !important;
+}
+
 /* ##########################   NAVBAR   ########################### */
 #nav{
     background-color: #F28C4Aff;
