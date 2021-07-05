@@ -44,12 +44,12 @@ class AddAccountController extends AbstractController
     /**
      * @Route("/")
      */
-    public function hello()
+   /*  public function hello()
     {
         var_dump("HELLO");
         return $this->render('front/index.html.twig');
 
-    }
+    } */
 
   
 
