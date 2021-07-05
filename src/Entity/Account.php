@@ -18,40 +18,30 @@ class Account
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $user_id;
-
-    /**
      * @ORM\Column(type="string", length=14)
      */
     private $account_number;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $account_type_id;
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="accounts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $User;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=AccountType::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $AccountType;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): self
-    {
-        $this->user_id = $user_id;
-
-        return $this;
     }
 
     public function getAccountNumber(): ?string
@@ -66,18 +56,6 @@ class Account
         return $this;
     }
 
-    public function getAccountTypeId(): ?int
-    {
-        return $this->account_type_id;
-    }
-
-    public function setAccountTypeId(int $account_type_id): self
-    {
-        $this->account_type_id = $account_type_id;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
@@ -86,6 +64,30 @@ class Account
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
+
+        return $this;
+    }
+
+    public function getAccountType(): ?AccountType
+    {
+        return $this->AccountType;
+    }
+
+    public function setAccountType(?AccountType $AccountType): self
+    {
+        $this->AccountType = $AccountType;
 
         return $this;
     }
