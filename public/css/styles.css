@@ -228,6 +228,7 @@ a, li, ul{
     background-color: #F28C4Aff !important;
     background: #F28C4Aff !important;
     color: #fff !important;
+    z-index:9999;
 }
 /* ##########################   VDO  ########################### */
 video#bgvid { 
