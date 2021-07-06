@@ -252,6 +252,90 @@ video#bgvid {
 #front{
     min-height: 100vh;
 }
+/*Popup*/
+.security-popup{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background-color:rgba(0,0,0,0.6);
+	visibility: hidden;
+	opacity: 0;
+	transition: all 1s ease;
+}
+.security-popup.show{
+	visibility:visible;
+	opacity: 1;
+}
+.security-popup .box{
+	background-color:#ffffff;
+	position: fixed;
+	left: 0;
+	top:0;
+  width: 100%;
+  height: 50vh;
+	display: flex;
+	/* flex-wrap: wrap; */
+	opacity: 0;
+	margin-left: 50px;
+	transition: all 1s ease;
+
+}
+.security-popup.show .box{
+	opacity: 1;
+	margin-left: 0;
+}
+.security-popup .box .img-area{
+	display: none;
+}
+
+.security-popup .box .img-area .img{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background-image: url('img/bg.jpg');
+	background-size: cover;
+	background-position: center;
+	animation: zoomInOut 7s linear infinite;
+	z-index: -1;
+}
+.security{
+  width: 80%;
+  overflow: auto;
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+@keyframes zoomInOut{
+	0%,100%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+}
+
+.login-popup .box .close{
+	position: absolute;
+  display: flex;
+	right: 100px;
+  margin-top: 1em;
+	font-size: 40px;
+	cursor: pointer;
+}
+
+.close{
+  display: flex;
+  top: 100px;
+}
+
+.btn{
+z-index: 9999;
+}
 /* ##################################################################### */
 /* ########################   LARGE DESKTOPS   ######################### */
 /* ##################################################################### */
