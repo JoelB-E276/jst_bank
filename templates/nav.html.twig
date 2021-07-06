@@ -34,6 +34,16 @@
 <nav class="navbar navbar-expand-lg navbar-light" id="nav">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('index')}}"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active maincolor btn-sm" aria-current="page" href="{{ path('app_register')}}">Become Client</a>
+        </li>
+        </ul>
+    </div>
 </div>
 </nav>
 {% endif %}
