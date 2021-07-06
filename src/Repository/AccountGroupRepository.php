@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\AccountType;
+use App\Entity\AccountGroup;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method AccountType|null find($id, $lockMode = null, $lockVersion = null)
- * @method AccountType|null findOneBy(array $criteria, array $orderBy = null)
- * @method AccountType[]    findAll()
- * @method AccountType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method AccountGroup|null find($id, $lockMode = null, $lockVersion = null)
+ * @method AccountGroup|null findOneBy(array $criteria, array $orderBy = null)
+ * @method AccountGroup[]    findAll()
+ * @method AccountGroup[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AccountTypeRepository extends ServiceEntityRepository
+class AccountGroupRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, AccountType::class);
+        parent::__construct($registry, AccountGroup::class);
     }
 
     // /**
-    //  * @return AccountType[] Returns an array of AccountType objects
+    //  * @return AccountGroup[] Returns an array of AccountGroup objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class AccountTypeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?AccountType
+    public function findOneBySomeField($value): ?AccountGroup
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

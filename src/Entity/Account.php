@@ -34,13 +34,13 @@ class Account
     private $User;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AccountType::class)
+     * @ORM\ManyToOne(targetEntity=AccountGroup::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $AccountType;
+    private $AccountGroup;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=0)
+     * @ORM\Column(type="decimal", precision=10, scale=2)
      */
     private $amount;
 
@@ -85,14 +85,14 @@ class Account
         return $this;
     }
 
-    public function getAccountType(): ?AccountType
+    public function getAccountGroup(): ?AccountGroup
     {
-        return $this->AccountType;
+        return $this->AccountGroup;
     }
 
-    public function setAccountType(?AccountType $AccountType): self
+    public function setAccountGroup(?AccountGroup $AccountGroup): self
     {
-        $this->AccountType = $AccountType;
+        $this->AccountGroup = $AccountGroup;
 
         return $this;
     }
@@ -108,4 +108,5 @@ class Account
 
         return $this;
     }
+
 }
