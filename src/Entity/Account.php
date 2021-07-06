@@ -39,6 +39,11 @@ class Account
      */
     private $AccountType;
 
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=0)
+     */
+    private $amount;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,6 +93,18 @@ class Account
     public function setAccountType(?AccountType $AccountType): self
     {
         $this->AccountType = $AccountType;
+
+        return $this;
+    }
+
+    public function getAmount(): ?string
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(string $amount): self
+    {
+        $this->amount = $amount;
 
         return $this;
     }
