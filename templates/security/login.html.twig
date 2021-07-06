@@ -7,6 +7,7 @@
 
 
 <div class="container" id="front">
+<form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -39,10 +40,11 @@
     #}
 
     <div class="text-center my-3">
-    <button class="btn btn-lg" type="submit">
+    <button class="btn text-white" type="submit">
         Sign in
     </div>
     </button>
+    
     <div class="text-center my-3">
     <a href="{{path('app_register')}}" class="btn btn-sm text-dark float-end">Sign Up</a>
     </div>
