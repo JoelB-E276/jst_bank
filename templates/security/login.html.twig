@@ -5,12 +5,9 @@
 {% block body %}
 {# <div class="bg"> #}
 
-<video poster="{{ asset('img/bg.jpg') }}" id="bgvid" playsinline autoplay muted loop>
-<source src="{{ asset('img/jst_bank.webm') }}"type="video/webm">
-<source src="{{ asset('img/jst_bank.mp4') }}" type="video/mp4">
-<form class="container" method="post">
-</video>
-<div>
+
+<div class="container" id="front">
+<form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -43,10 +40,11 @@
     #}
 
     <div class="text-center my-3">
-    <button class="btn btn-lg" type="submit">
+    <button class="btn text-white" type="submit">
         Sign in
     </div>
     </button>
+    
     <div class="text-center my-3">
     <a href="{{path('app_register')}}" class="btn btn-sm text-dark float-end">Sign Up</a>
     </div>
@@ -54,4 +52,9 @@
 </form>
 </div>
 
+<video poster="{{ asset('img/bg.jpg') }}" id="bgvid" playsinline autoplay muted loop>
+<source src="{{ asset('img/jst_bank.webm') }}"type="video/webm">
+<source src="{{ asset('img/jst_bank.mp4') }}" type="video/mp4">
+<form class="container" method="post">
+</video>
 {% endblock %}

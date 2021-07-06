@@ -228,9 +228,10 @@ a, li, ul{
     background-color: #F28C4Aff !important;
     background: #F28C4Aff !important;
     color: #fff !important;
+    z-index:9999;
 }
 /* ##########################   VDO  ########################### */
-video { 
+video#bgvid { 
     position: fixed;
     top: 50%;
     left: 50%;
@@ -248,6 +249,9 @@ video {
    opacity: .5;
 }
 
+#front{
+    min-height: 100vh;
+}
 /* ##################################################################### */
 /* ########################   LARGE DESKTOPS   ######################### */
 /* ##################################################################### */
