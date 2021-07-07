@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AccountTypeRepository;
+use App\Repository\AccountGroupRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=AccountTypeRepository::class)
+ * @ORM\Entity(repositoryClass=AccountGroupRepository::class)
  */
-class AccountType
+class AccountGroup
 {
     /**
      * @ORM\Id
