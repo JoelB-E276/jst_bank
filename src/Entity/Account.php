@@ -45,11 +45,6 @@ class Account
      */
     private $amount;
 
-    /**
-     * @ORM\Column(type="decimal", precision=10, scale=0)
-     */
-    private $amount;
-
     public function getId(): ?int
     {
         return $this->id;
