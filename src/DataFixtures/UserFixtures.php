@@ -6,16 +6,24 @@ use App\Entity\User;
 use DateTime;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
+    private $encoder;
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         // $product = new Product();
         // $manager->persist($product);
         $user1 = new User();
+        $password = $this->encoder->encodePassword($user1,'Cobol');
         $user1->setEmail("hopper@maboitemail.fr")
-        ->setPassword("Cobol")
+        ->setPassword($password)
         ->setFirstname("Grace")
         ->setLastname("Hopper")
         ->setAdress("fifh avenue")
@@ -26,8 +34,9 @@ class UserFixtures extends Fixture
         $manager->persist($user1);
 
         $user2 = new User();
+        $password = $this->encoder->encodePassword($user2,'firstprogram');
         $user2->setEmail("lovelace@gmail.com")
-        ->setPassword("firstprogram")
+        ->setPassword($password)
         ->setFirstname("Ada")
         ->setLastname("Lovelace")
         ->setAdress("12 Downing street")
@@ -38,8 +47,9 @@ class UserFixtures extends Fixture
         $manager->persist($user2);
 
         $user3 = new User();
+        $password = $this->encoder->encodePassword($user3,'fhss');
         $user3->setEmail("lamarr@yahoo.fr")
-        ->setPassword("fhss")
+        ->setPassword($password)
         ->setFirstname("Hedy")
         ->setLastname("Lamarr")
         ->setAdress("27 Prinz Eugen-Strabe")
@@ -50,5 +60,10 @@ class UserFixtures extends Fixture
         $manager->persist($user3);      
 
         $manager->flush();
+
+        $this->addReference("Hopper", $user1);
+        $this->addReference("Lovelace", $user2);
+        $this->addReference("Lamarr", $user3);
+
     }
 }

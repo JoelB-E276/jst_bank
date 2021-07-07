@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\AccountRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass=AccountRepository::class)
  */
@@ -38,6 +39,11 @@ class Account
      * @ORM\JoinColumn(nullable=false)
      */
     private $AccountType;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=0)
+     */
+    private $amount;
 
     public function getId(): ?int
     {
@@ -88,6 +94,18 @@ class Account
     public function setAccountType(?AccountType $AccountType): self
     {
         $this->AccountType = $AccountType;
+
+        return $this;
+    }
+
+    public function getAmount(): ?string
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(string $amount): self
+    {
+        $this->amount = $amount;
 
         return $this;
     }
