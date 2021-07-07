@@ -21,7 +21,7 @@ class UserFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
         $user1 = new User();
-        $password = $this->encoder->encodePassword($user1,'Cobol');
+        $password = $this->encoder->encodePassword($user1,'123456');
         $user1->setEmail("hopper@maboitemail.fr")
         ->setPassword($password)
         ->setFirstname("Grace")
@@ -34,7 +34,7 @@ class UserFixtures extends Fixture
         $manager->persist($user1);
 
         $user2 = new User();
-        $password = $this->encoder->encodePassword($user2,'firstprogram');
+        $password = $this->encoder->encodePassword($user2,'1234567');
         $user2->setEmail("lovelace@gmail.com")
         ->setPassword($password)
         ->setFirstname("Ada")
@@ -47,7 +47,7 @@ class UserFixtures extends Fixture
         $manager->persist($user2);
 
         $user3 = new User();
-        $password = $this->encoder->encodePassword($user3,'fhss');
+        $password = $this->encoder->encodePassword($user3,'12345678');
         $user3->setEmail("lamarr@yahoo.fr")
         ->setPassword($password)
         ->setFirstname("Hedy")

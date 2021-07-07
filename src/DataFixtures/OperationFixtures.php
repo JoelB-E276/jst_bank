@@ -26,7 +26,7 @@ class OperationFixtures extends Fixture implements DependentFixtureInterface
         $operation2->setAccount($this->getReference('76310794789185'))
         ->setName('VENTE PRODUIT 22/40')
         ->setOperationDate(new DateTime())
-        ->setAmount(1500)
+        ->setAmount(1500.99)
         ->setOperationType("C");
         $manager->persist($operation2);        
         
@@ -42,7 +42,7 @@ class OperationFixtures extends Fixture implements DependentFixtureInterface
         $operation4->setAccount($this->getReference('76125480580161'))
         ->setName('PAIEMENT FACTURE')
         ->setOperationDate(new DateTime())
-        ->setAmount(195)
+        ->setAmount(195.25)
         ->setOperationType("D");
         $manager->persist($operation4);
 

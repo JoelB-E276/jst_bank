@@ -18,7 +18,7 @@ class AccountGroupFixtures extends Fixture
 
         $AccountGroup2 = new AccountGroup();
         $AccountGroup2->setName('Livret A');
-        $this->addReference('Livret A', $AccountGroup2);
+        $this->addReference('LIVRET A', $AccountGroup2);
         $manager->persist($AccountGroup2);
 
         $AccountGroup3 = new AccountGroup();

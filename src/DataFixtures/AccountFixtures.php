@@ -35,7 +35,7 @@ class AccountFixtures extends Fixture implements DependentFixtureInterface
         $account3 = new Account();
         $account3->setUser($this->getReference('Hopper'))
         ->setaccountNumber("76043156789143")
-        ->setAccountGroup($this->getReference('Livret A'))
+        ->setAccountGroup($this->getReference('LIVRET A'))
         ->setAmount(1200)
         ->setCreatedAt(new DateTime());
         $this->addReference('76043156789143', $account3);
@@ -53,7 +53,7 @@ class AccountFixtures extends Fixture implements DependentFixtureInterface
         $account5 = new Account();
         $account5->setUser($this->getReference('Lovelace'))
         ->setaccountNumber("76425923489021")
-        ->setAccountGroup($this->getReference('Livret A'))
+        ->setAccountGroup($this->getReference('LIVRET A'))
         ->setAmount(693.65)
         ->setCreatedAt(new DateTime());
         $this->addReference('76425923489021', $account5);
