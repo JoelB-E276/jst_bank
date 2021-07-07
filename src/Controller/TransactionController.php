@@ -3,54 +3,72 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Account;
+use App\Entity\User;
+use App\Entity\AccountType;
 use App\Entity\Operation;
 use App\Form\WithdrawType;
 use App\Repository\OperationRepository;
 
 class TransactionController extends AbstractController
-{
+{ 
     #[Route('/transaction', name: 'transaction')]
 
     public function withdraw(Request $request): Response
     {
         $operation = new Operation();
-        $form = $this->createFormBuilder($operation)
-        ->add('accountType', Account::class, 
-        [
-            'class'  => Account::class,
-            'query_builder' => function (EntityRepository $er) 
-            {
-                return $er->createQueryBuilder('a')
-                    ->orderBy('a.name', 'ASC');
-            },
-        ])
+        $form = $this->createFormBuilder()
 
-            
-        ->add('operation_date')
-        ->add('amount')
-        ->add('RETRAIT', SubmitType::class, [
+        ->add('from', EntityType::class, [
+            'label' => "Depuis le compte",
+            'class' => Account::class,
+            'choice_label' => 'account_number'],)
+
+        ->add('to', EntityType::class, [
+            'label' => "Vers le compte",
+            'class' => Account::class,
+            'choice_label' => 'account_number'],) 
+                  
+
+        ->add('operation_date',null, [
+            "label"=> "Date du virement"
+        ])
+        ->add('amount',null, [
+            "label"=> "Montant"
+        ])
+        
+        ->add('Virer', SubmitType::class, [
             'row_attr' => ['class' => 'text-center']
-        ])
+        ],)  
     
-    ->getForm();
+        ->getForm();
 
-        if($form->isSubmitted() && $form->isValid())
+
+     if($form->isSubmitted() && $form->isValid())
          {
-            $operation->setOperationType("D");
-            $operation->setUser($this->getUser());
-            $operation->setPublished(new \DateTime());
+            $data = $form->getData();
+            var_dump($data);
+        /*  $operation->setOperationType("D");
+            $user = new User;
+            $user->getId($this->getUser());
+            dd($user);
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($subject);
-            $entityManager->flush();
+            $entityManager->persist($operation);
+            $entityManager->flush();*/
 
-         }
-
+         } 
+ 
         return $this->render('front/transaction.html.twig', [
             "form" => $form->createView()
         ]);
     }
+
+
+
+
 }

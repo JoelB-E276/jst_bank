@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/operation')]
 class OperationController extends AbstractController
 {
-    #[Route('/', name: 'operation_index', methods: ['GET'])]
+    #[Route('/', name: 'operation', methods: ['GET'])]
     public function index(OperationRepository $operationRepository): Response
     {
         return $this->render('operation/index.html.twig', [
