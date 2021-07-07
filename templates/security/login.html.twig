@@ -30,7 +30,7 @@
   </section>
 
 <div class="container" id="front">
-<form method="post">
+<form method="post" id="cardTest">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
