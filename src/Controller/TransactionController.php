@@ -17,9 +17,63 @@ use App\Repository\OperationRepository;
 
 class TransactionController extends AbstractController
 { 
-    #[Route('/transaction', name: 'transaction')]
 
-    public function withdraw(Request $request): Response
+    // Retrait
+    #[Route('/withdrawal', name: 'withdrawal')]
+
+    public function withdrawal(Request $request): Response
+    {
+        $user = new User();
+        $account = new account();
+        $account->setUser($this->getUser());
+        $operation = new Operation();
+        $form = $this->createFormBuilder()
+
+        ->add('account_number', EntityType::class, [
+            'label' => "Depuis le compte",
+            'class' => Account::class,
+            'choice_label' => ''],)
+
+            ->add('utili', EntityType::class, [
+                'label' => "Depuis le compte",
+                'class' => user::class,
+                'choice_label' => 'email'],)
+
+                           
+        ->add('amount',null, [
+            "label"=> "Montant"
+        ])
+        
+        ->add('Retrait', SubmitType::class, [
+            'row_attr' => ['class' => 'text-center']
+        ],)  
+    
+        ->getForm();
+
+
+     if($form->isSubmitted() && $form->isValid())
+         {
+            $data = $form->getData();
+            var_dump($data);
+        /*  $operation->setOperationType("D");
+            $user = new User;
+            $user->getId($this->getUser());
+            dd($user);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($operation);
+            $entityManager->flush();*/
+
+         } 
+ 
+        return $this->render('transaction/withdrawal.html.twig', [
+            "form" => $form->createView()
+        ]);
+    }
+
+
+    #[Route('/transfer', name: 'transfer')]
+
+    public function transfer (Request $request): Response
     {
         $operation = new Operation();
         $form = $this->createFormBuilder()
@@ -33,11 +87,7 @@ class TransactionController extends AbstractController
             'label' => "Vers le compte",
             'class' => Account::class,
             'choice_label' => 'account_number'],) 
-                  
-
-        ->add('operation_date',null, [
-            "label"=> "Date du virement"
-        ])
+                    
         ->add('amount',null, [
             "label"=> "Montant"
         ])
@@ -63,12 +113,9 @@ class TransactionController extends AbstractController
 
          } 
  
-        return $this->render('front/transaction.html.twig', [
+        return $this->render('transaction.transfer.html.twig', [
             "form" => $form->createView()
         ]);
     }
-
-
-
 
 }
