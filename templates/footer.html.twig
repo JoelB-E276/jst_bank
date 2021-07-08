@@ -1,5 +1,54 @@
 <footer>
+{% if app.user %}
+    <section class= "footer-area ">
+        <div class="container p-4 mainf">
+            <div class="row footerm">
+                <div class="singlefooter col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h4>About us</h4>
+                    <p>
+                    </p>
+                    <div class="footersocial">
+                    <ul>
+                     <li><a href="https://github.com/JoelB-E276"><ion-icon name="logo-github"></ion-icon>J</a></li>
+                     <li><a href="https://github.com/samir-bas"><ion-icon name="logo-github"></ion-icon>S</a></li>
+                     <li><a href="https://github.com/trobillard"><ion-icon name="logo-github"></ion-icon>T</a></li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="singlefooter col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h4>Main Menu</h4>
+                    <ul>
+                        <li><a href=""><ion-icon name="arrow-forward-circle-outline"></ion-icon>Home</a></li>
+                        <li><a href=""><ion-icon name="arrow-forward-circle-outline"></ion-icon>Account</a></li>
+                        <li><a href=""><ion-icon name="arrow-forward-circle-outline"></ion-icon>Operation</a></li>
+                    </ul>
+                </div>
+                <div class="singlefooter col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href=""><ion-icon name="arrow-forward-circle-outline"></ion-icon>Privacy</a></li>
+                        <li><a href=""><ion-icon name="arrow-forward-circle-outline"></ion-icon>Terms&Conditions</a></li>
+                        <li><a href=""><ion-icon name="arrow-forward-circle-outline"></ion-icon>Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="singlefooter col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><p><ion-icon name="home-outline"></ion-icon> JST Bank HongKong</p></li>
+                        <li><p><ion-icon name="phone-portrait-outline"></ion-icon>+82 0987 876 677</p></li>
+                        <li><p><ion-icon name="mail-outline"></ion-icon>info@jstbank.com</p></li>
+                        <li><p><ion-icon name="globe-outline"></ion-icon>www.jst-bank.com</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center my-5 copy">
+                  <p class="hhmain">© 2021 JSTBANK. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </section>
+{% else %}
     <section class="text-center my-5">
         <p class="hh">© 2021 JSTBANK. ALL RIGHTS RESERVED.</p>
     </section>
+{% endif %}
 </footer>

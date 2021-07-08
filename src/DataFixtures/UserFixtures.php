@@ -41,7 +41,7 @@ class UserFixtures extends Fixture
         ->setLastname("Lovelace")
         ->setAdress("12 Downing street")
         ->setCity("Londres")
-        ->setZipCode("SW1A 2AA")
+        ->setZipCode("SW1A2")
         ->setBirthDate(new DateTime("10-12-1815"))
         ->setSex("F");
         $manager->persist($user2);

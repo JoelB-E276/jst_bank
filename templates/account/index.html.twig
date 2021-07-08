@@ -4,9 +4,7 @@
 
 {% block body %}
      <div class="container pt-3">
-        <p class="h4">Vos comptes bancaires <a href="{{ path('account_new') }}" class="btn btn-success"> 
-            <i  class="fas fa-plus-circle"></i> Ajouter</a></p>
-        <p class="h4">Propriétaire </p>
+        <h4>Vos comptes bancaires</h4>
         <table class="table class=table table-striped table-hover table-bordered mt-5">
             <thead class="text-center align-middle"> <!--Aligne middle : vertical center on the cell -->
                 <tr>
@@ -32,6 +30,8 @@
                 {% endfor %}
             </tbody>
         </table>
+        <a href="{{ path('account_new') }}" class="btn btn-success"> 
+            <i  class="fas fa-plus-circle"></i> Ajouter a new account</a>
     </div>
 
 {% endblock %}
