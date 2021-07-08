@@ -2,6 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light" id="nav">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('account_index')}}"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></a>
+    <p class="text-white"> Welcome {{ app.user.username }}</p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,7 +34,7 @@
 {% else %}
 <nav class="navbar navbar-expand-lg navbar-light" id="nav">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('index')}}"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></a>
+    <a class="navbar-brand" href="{{ path('account_index')}}"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
