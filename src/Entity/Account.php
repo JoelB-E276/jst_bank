@@ -15,6 +15,7 @@ class Account
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity=Operation::class, mappedBy="account_id")
      */
     private $id;
 
@@ -35,7 +36,7 @@ class Account
     private $User;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AccountGroup::class)
+     * @ORM\ManyToOne(targetEntity=AccountGroup::class, inversedBy="id")
      * @ORM\JoinColumn(nullable=false)
      */
     private $AccountGroup;
