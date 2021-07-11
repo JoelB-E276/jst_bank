@@ -2,31 +2,35 @@
 <nav class="navbar navbar-expand-lg navbar-light" id="nav">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('account_index')}}"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></a>
-    <p class="text-white"> Welcome {{ app.user.username }}</p>
+    <p class="nav-item text-white"> Welcome {{ app.user.firstname }} {{ app.user.lastname }}</p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active maincolor" aria-current="page" href="{{ path('account_index')}}">Home</a>
+          <a class="nav-link active maincolor" aria-current="page" href="{{ path('account_index')}}">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active maincolor" aria-current="page" href="{{ path('operation')}}">Operation</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link maincolor" href="{{ path('transaction')}}">Transaction</a>
         </li>
         <li class="nav-item">
           <a class="nav-link maincolor" href="{{ path('app_logout')}}">Logout</a>
         </li>
-         <li class="nav-item">
-          {# <a class="nav-link maincolor" href="{{ path('newSubject')}}">New Subject</a> #}
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle maincolor" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu maincolor" aria-labelledby="navbarDropdownMenuLink">
+        
+        {# <li class="nav-item dropdown"> #}
+          {# <a class="nav-link dropdown-toggle maincolor" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> #}
+            {# Dropdown link #}
+          {# </a> #}
+          {# <ul class="dropdown-menu maincolor" aria-labelledby="navbarDropdownMenuLink"> #}
             {# <li><a class="dropdown-item maincolor" href="{{ path('abtSymfony')}}">Why Symfony</a></li> #}
             {# <li><a class="dropdown-item maincolor" href="{{ path('accounts')}}">Account</a></li> #}
-            <li><a class="dropdown-item maincolor" href="#">Something else here</a></li>
-          </ul>
-        </li>
+            {# <li><a class="dropdown-item maincolor" href="#">Something else here</a></li> #}
+          {# </ul> #}
+        {# </li> #}
       </ul>
     </div>
   </div>

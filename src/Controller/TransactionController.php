@@ -14,6 +14,11 @@ use App\Entity\AccountType;
 use App\Entity\Operation;
 use App\Form\WithdrawType;
 use App\Repository\OperationRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
+ /**
+  * @IsGranted("IS_AUTHENTICATED_FULLY")
+  */
 
 class TransactionController extends AbstractController
 { 
