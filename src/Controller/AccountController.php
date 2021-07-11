@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
+use DateTime;
+use Exception;
 use App\Entity\Account;
 use App\Form\AccountType;
 use App\Repository\AccountRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
  /**
   * @IsGranted("IS_AUTHENTICATED_FULLY")
@@ -26,20 +27,23 @@ class AccountController extends AbstractController
         return $this->render('account/index.html.twig', [
                 'accounts' => $accounts, 
         ]);
-
-        // return $this->render('account/index.html.twig', [
-        //     'accounts' => $accountRepository->findAll(),
-        // ]);
     }
 
     #[Route('/new', name: 'account_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
         $account = new Account();
+        $timestamp = new DateTime();
+        $account->setCreatedAt($timestamp);
         $form = $this->createForm(AccountType::class, $account);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $user = $this->getUser();
+            $account->setUser($user);
+            $timestamp = new DateTime();
+            $account->setCreatedAt($timestamp);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($account);
             $entityManager->flush();
@@ -56,6 +60,10 @@ class AccountController extends AbstractController
     #[Route('/{id}/edit', name: 'account_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Account $account): Response
     {
+        $user = $this->getUser();
+        if ($account->getUser()->getId() !== $user->getId()) {
+                throw new Exception('Accès non autorisé');
+        }
         $form = $this->createForm(AccountType::class, $account);
         $form->handleRequest($request);
 
@@ -71,14 +79,19 @@ class AccountController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'account_delete', methods: ['POST'])]
-    public function delete(Request $request, Account $account): Response
+    #[Route('/{id}', name: 'account_delete', methods: ['GET'])]
+    public function delete(Account $account): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$account->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($account);
-            $entityManager->flush();
-        }
+     
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($account);
+        $entityManager->flush();
+
+            // if ($this->isCsrfTokenValid('delete'.$account->getId(), $request->request->get('_token'))) {
+        //     $entityManager = $this->getDoctrine()->getManager();
+        //     $entityManager->remove($account);
+        //     $entityManager->flush();
+        // }
 
         return $this->redirectToRoute('account_index');
     }
