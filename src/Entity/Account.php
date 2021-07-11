@@ -43,6 +43,7 @@ class Account
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
      */
+
     private $amount;
 
     public function getId(): ?int

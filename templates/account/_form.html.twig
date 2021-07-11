@@ -1,15 +1,8 @@
-{# {{ form_start(form) }}
+{{ form_start(form) }}
     {{ form_widget(form) }}
-
-     <div class="form-group">
-        <h1>{{ account.accountNumber }}</h1>
+    <div class="text-center">
+        <button class="btn col-2">{{ button_label|default('Enregistrer') }}</button>
+        <a class= "btn col-2" href="{{ path('account_index') }}">Retour</a>
     </div>
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }} #}
-
-
-
-  
-    {{ form(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
    
