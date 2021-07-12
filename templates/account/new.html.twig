@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Account{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Création d'un compte</h1>
+
+        {{ include('account/_form.html.twig') }}
+        <a href="{{ path('account_index') }}">back to list</a>
+    </div>
+{% endblock %}

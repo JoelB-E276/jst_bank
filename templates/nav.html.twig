@@ -1,0 +1,83 @@
+{% if app.user %}
+<nav class="navbar navbar-expand-lg navbar-light" id="nav">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('account_index')}}"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></a>
+    <p class="nav-item text-white"> Welcome {{ app.user.firstname }} {{ app.user.lastname }}</p>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active maincolor" aria-current="page" href="{{ path('account_index')}}">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active maincolor" aria-current="page" href="{{ path('operation')}}">Operation</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link maincolor" href="{{ path('transaction')}}">Transaction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link maincolor" href="{{ path('app_logout')}}">Logout</a>
+        </li>
+        
+        {# <li class="nav-item dropdown"> #}
+          {# <a class="nav-link dropdown-toggle maincolor" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> #}
+            {# Dropdown link #}
+          {# </a> #}
+          {# <ul class="dropdown-menu maincolor" aria-labelledby="navbarDropdownMenuLink"> #}
+            {# <li><a class="dropdown-item maincolor" href="{{ path('abtSymfony')}}">Why Symfony</a></li> #}
+            {# <li><a class="dropdown-item maincolor" href="{{ path('accounts')}}">Account</a></li> #}
+            {# <li><a class="dropdown-item maincolor" href="#">Something else here</a></li> #}
+          {# </ul> #}
+        {# </li> #}
+      </ul>
+    </div>
+  </div>
+</nav>
+{% else %}
+<nav class="navbar navbar-expand-lg navbar-light" id="nav">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('account_index')}}"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active maincolor" aria-current="page" href="{{ path('app_register')}}">Become Client</a>
+        </li>
+        </ul>
+    </div>
+</div>
+</nav>
+{% endif %}
+{# 
+
+ <div class="pimpnav">
+ <div class="navigation">
+ <ul>
+ <li class="list active">
+ <a class="navbar-brand" href="{{ path('index')}}"></a>
+ <span class="icon"><img src="{{ asset('img/logoor.jpg') }}" alt="Bank logo"></span>
+ <span class="title">Home</span>
+</li>
+<li class="list">
+ <a class="navbar-brand" href="{{ path('index')}}"></a>
+ <span class="icon"><ion-icon name="card"></ion-icon></span>
+ <span class="title">Account</span>
+</li>
+<li class="list">
+ <a class="navbar-brand" href="{{ path('index')}}"></a>
+ <span class="icon"><ion-icon name="newspaper"></ion-icon></span>
+ <span class="title">News</span>
+</li>
+<li class="list">
+ <a class="navbar-brand" href="{{ path('index')}}"></a>
+ <span class="icon"><ion-icon name="log-out"></ion-icon></span>
+ <span class="title">Signout</span>
+</li>
+ </ul>
+ </div>
+ </div>
+  #}
