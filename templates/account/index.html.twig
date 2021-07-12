@@ -8,10 +8,11 @@
         <table class="table class=table table-striped table-hover table-bordered mt-5">
             <thead class="text-center align-middle"> <!--Aligne middle : vertical center on the cell -->
                 <tr>
-                    <th scope="col" class="col-1">Id</th>
-                    <th scope="col" class="col-5">N° Compte</th>
+                    <th scope="col" class="col-1">ID</th>
+                    <th scope="col" class="col-3">N° Compte</th>
                     <th scope="col" class="col-1">Date Création</th>
                     <th scope="col" class="col-1">Solde</th>
+                    <th scope="col" class="col-2">Type de Compte</th>
                     <th scope="col" class="col-3">Actions</th>
                 </tr>
             </thead>
@@ -22,9 +23,10 @@
                         <td>{{ account.accountNumber }}</td>
                         <td>{{ account.createdAt|date('d/m/Y') }}</td>
                         <td class="text-end">{{ account.amount|number_format(2, ',', ' ') ~ " €" }}</td>
-                        <td class="text-center">
-                            <a class="btn btn-primary col-3" href="">Clôturer</a>
-                            <a class="btn btn-primary col-3" href="">Détails</a>
+                         <td>{{ account.accountGroup.name }}</td>
+                       <td class="text-center">
+                            <a class="btn btn-primary col-4" href="{{ path('account_delete', {'id': account.id}) }}">Clôturer</a>
+                            <a class="btn btn-primary col-4" href="">Détails</a>
                         </td>
                     </tr>
                 {% endfor %}
