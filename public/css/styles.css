@@ -233,12 +233,16 @@ a, li, ul{
 /* ##########################   FOOTER  ########################### */
 .footer-area{
     margin-top:100px;
-    padding:100px 0;
+    /* padding:100px 0; */
     background: #F28C4Aff;
     background: -moz-linear-gradient(left, #ffb76b 0%, #ff7c00 0%, #ff7c00 0%, #ff7c00 38%, #ffa73d 76%, #ff7f04 100%); 
 background: -webkit-linear-gradient(left, #ffb76b 0%,#ff7c00 0%,#ff7c00 0%,#ff7c00 38%,#ffa73d 76%,#ff7f04 100%); 
 background: linear-gradient(to right, #ffb76b 0%,#ff7c00 0%,#ff7c00 0%,#ff7c00 38%,#ffa73d 76%,#ff7f04 100%);
     position: relative;
+}
+
+.okok{
+    color: #F28C4Aff !important;
 }
 
 .mainf{
