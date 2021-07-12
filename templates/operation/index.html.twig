@@ -3,7 +3,8 @@
 {% block title %}Operation index{% endblock %}
 
 {% block body %}
-    <h1>Operation index</h1>
+<div class="container pt-3">
+    <h2>Operation index</h2>
 
     <table class="table">
         <thead>
@@ -36,6 +37,7 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
 
     <a href="{{ path('operation_new') }}">Create new</a>
 {% endblock %}
