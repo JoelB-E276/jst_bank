@@ -79,7 +79,7 @@ class AccountController extends AbstractController
     #[Route('/{id}', name: 'account_delete', methods: ['GET'])]
     public function delete(Account $account): Response
     {
-     
+        
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($account);
         $entityManager->flush();
